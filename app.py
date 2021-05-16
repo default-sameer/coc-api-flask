@@ -8,7 +8,7 @@ app.config['SECRET_KEY'] = 'TtNqvoYQX@6Fjr&@GT5pW!brWFSZ'
 
 header = {
     'Accept': 'application/json',
-    'authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjdlZjQ4ZjNmLTExNTItNDgxYS05NGMxLTE4Mjg4MTVhNWY3MyIsImlhdCI6MTYyMTE1ODk0MCwic3ViIjoiZGV2ZWxvcGVyLzY5YjkwNTQ5LWViMGYtMmIzMi1lNmZkLWM3ZjgzZTc5ZjkxOCIsInNjb3BlcyI6WyJjbGFzaCJdLCJsaW1pdHMiOlt7InRpZXIiOiJkZXZlbG9wZXIvc2lsdmVyIiwidHlwZSI6InRocm90dGxpbmcifSx7ImNpZHJzIjpbIjI3LjM0LjE4LjE0NiJdLCJ0eXBlIjoiY2xpZW50In1dfQ.e8uJ1eV6_uW-g-j5nWrmwvfz0eGEwzBoe5cLR9l5q3n2PPlqEW-8fXvP8lX_ZlQ_Pw8W6JjOwfC-vEktAe9ySw'
+    'authorization': 'Bearer token goes here'
     }
 
 @app.route('/')
