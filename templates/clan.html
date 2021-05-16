@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+{% block title %}Clan{% endblock %}
+{% block body %}
+<div>
+    <nav class="nav d-flex justify-content-between">
+        <button type="button" class="btn btn-outline-secondary" onclick="goBack()">Back</button>
+    </nav>
+</div>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+<div class="tile is-ancestor">
+    <div class="tile is-parent">
+        <article class="tile is-child box">
+            <p class="title">{{stats['name']}}</p>
+            <p class="subtitle">{{stats['tag']}}</p>
+            <figure class="image is-128x128">
+                <img src="{{stats['badgeUrls']['large']}}">
+            </figure>
+            {% if stats['location'] %}
+            <p class="subtitle">Location: {{stats['location']['name']}}</p>
+            {% else %}
+            {% endif %}
+        </article>
+    </div>
+    <div class="tile is-parent">
+        <article class="tile is-child box">
+            <p class="subtitle">Clan Level: {{stats['clanLevel']}}</p>
+            <p class="subtitle">Clan Points: {{stats['clanPoints']}}</p>
+            <p class="subtitle">Clan Versus Point: {{stats['clanVersusPoints']}}</p>
+            <p class="subtitle">War Frequency: {{stats['warFrequency']}}</p>
+            <p class="subtitle">Warwin Streak: {{stats['warWinStreak']}}</p>
+            <p class="subtitle">War Win: {{stats['warWins']}}</p>
+            <p class="subtitle">Required Trophies: {{stats['requiredTrophies']}}</p>
+        </article>
+    </div>
+    <div class="tile is-parent">
+        <article class="tile is-child box">
+            <p class="title">Clan Description</p>
+            <div class="content">
+                {% if stats['description'] %}
+                <p>{{stats['description']}}</p>
+                {% else %}
+                <p>Null</p>
+                {% endif %}
+                
+            </div>
+        </article>
+    </div>
+</div>
+<hr>
+<h1>Total Members: {{stats['members']}}</h1>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Player Tag</th>
+                <th scope="col">Name</th>
+                <th scope="col">Role</th>
+                <th scope="col">Exp Level</th>
+                <th scope="col">League</th>
+                <th scope="col">Trophies</th>
+                <th scope="col">Versus Trophies</th>
+                <th scope="col">Clan Rank</th>
+                <th scope="col">Previous Clan Rank</th>
+                <th scope="col">Donation</th>
+                <th scope="col">Donation Received</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for member in members %}
+            <tr>
+                <td>{{member['tag']}}</td>
+                <td>{{member['name']}}</a></td>
+                <td>{{member['role']}}</td>
+                <td>{{member['expLevel']}}</td>
+                <td><figure class="image is-48x48">
+                    <img src="{{member['league']['iconUrls']['medium']}}">
+                </figure></td>
+                <td>{{member['trophies']}}</td>
+                <td>{{member['versusTrophies']}}</td>
+                <td>{{member['clanRank']}}</td>
+                <td>{{member['previousClanRank']}}</td>
+                <td>{{member['donations']}}</td>
+                <td>{{member['donationsReceived']}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

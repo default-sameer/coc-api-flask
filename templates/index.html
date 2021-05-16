@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %}Home{% endblock %}
+{% block body %}
+<div class="section" style="background-image: url('/static/img/bg.jpg'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed; ">
+<header class="masthead">
+    <div class="container d-flex h-100 align-items-center">
+        <div class="mx-auto text-center">
+            <h1 class="mx-auto my-0 text-uppercase">Get Started By Name or Clan</h1>
+            <a class="btn btn-dark" href='{{url_for("search_player")}}'>Player ID</a>
+            <p>OR</p>
+            <a class="btn btn-dark" href='{{url_for("search_clan")}}'>Clan Name</a>
+        </div>
+    </div>
+</header>
+
+</div>
+{% endblock %}

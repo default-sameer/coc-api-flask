@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %}Search Player{% endblock %}
+{% block body %}
+<div class="row pt-5">
+    <div class="col-sm-4 offset-sm-4">
+        <nav class="panel">
+            <form method="POST">
+            <div class="panel-block">
+                <p class="control has-icons-left">
+                    <input class="input" name='search' type="text" placeholder="PLayer ID">
+                </p>
+            </div>
+            <div class="panel-block">
+                <button class="button is-link is-outlined is-fullwidth">
+                    Search
+                </button>
+            </div>
+            </form>
+        </nav>
+        {% include 'includes/_messages.html' %}
+    </div>
+</div>
+{% endblock %}

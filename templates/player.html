@@ -1,0 +1,133 @@
+{% extends "layout.html" %}
+{% block title %}Player{% endblock title %}
+{% block body %}
+<div>
+    <nav class="nav d-flex justify-content-between">
+        <button type="button" class="btn btn-outline-secondary" onclick="goBack()">Back</button>
+    </nav>
+</div>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+<div class="tile is-ancestor pt-5">
+    <div class="tile is-parent">
+        <article class="tile is-child box">
+            <p class="title has-text-centered is-size-4">{{stats['name']}}</p>
+            <p class="subtitle has-text-centered">{{stats['tag']}}</p>
+            <div class="level-item is-size-5">
+                <p>Exp Level: {{stats['expLevel']}}</p>
+            </div>
+            <div class="level-item is-size-5">
+                <p>Townhall Level: {{stats['townHallLevel']}}</p>
+            </div>
+            <div class="level-item is-size-5">
+                <p>Townhall Weapon Level: {{stats['townHallWeaponLevel']}}</p>
+            </div>
+            <div class="level-item is-size-5">
+                <p>War Stars: {{stats['warStars']}}</p>
+            </div>
+            <div class="level-item is-size-5">
+                <p>Builderhall Level: {{stats['builderHallLevel']}}</p>
+            </div>
+            <div class="level-item is-size-5">
+                <p>Versus Trophies: {{stats['versusTrophies']}}</p>
+            </div>
+            <div class="level-item is-size-5">
+                <p>Best Versus Trophies: {{stats['bestVersusTrophies']}}</p>
+            </div>
+            <div class="level-item is-size-5">
+                <p>Versus Battle Wins: {{stats['versusBattleWins']}}</p>
+            </div>
+        </article>
+    </div>
+    <div class="tile is-parent">
+        <article class="tile is-child box">
+            <p class="is-size-2 text-center">Clan</p>
+            <p class="subtitle pt-1">
+                {% if stats['clan'] %}
+                <figure class="image is-1by1">
+                    <img src="{{stats['clan']['badgeUrls']['large']}}">
+                </figure>
+                {% else %}
+                
+                {% endif %}
+            <div class="level-item is-size-6 has-text-centered">
+                {% if stats['clan'] %}
+                <p>Clan Name: {{stats['clan']['name']}}</p>
+                {% else %}
+                <p>Clan Name: Null</p>
+                {% endif %}
+            </div>
+            <div class="level-item is-size-6 has-text-centered">
+                {% if stats['role'] %}
+                <p>Role: {{stats['role']}}</p>
+                {% else %}
+                <p>Role: Null</p>
+                {% endif %}
+            </div>
+            </p>
+        </article>
+    </div>
+    <div class="tile is-parent">
+        <article class="tile is-child box">
+            <p class="is-size-2 text-center">League</p>
+            <p class="subtitle pt-1">
+            {% if stats['league'] %}
+            <figure class="image is-1by1">
+                <img src="{{stats['league']['iconUrls']['medium']}}">
+            </figure>
+            {% else %}
+            
+            {% endif %}
+            <div class="level-item is-size-6 has-text-centered">
+                <p>Trophies: {{stats['trophies']}}</p>
+            </div>
+            <div class="level-item is-size-6 has-text-centered">
+                <p>Best Trophies: {{stats['bestTrophies']}}</p>
+            </div>
+            </p>
+        </article>
+    </div>
+</div>
+<nav class="level">
+    <div class="level-item has-text-centered">
+        <div>
+            <p class="heading">Troops Donated</p>
+            <p class="title">{{stats['donations']}}</p>
+        </div>
+    </div>
+    <div class="level-item has-text-centered">
+        <div>
+            <p class="heading">Troops Received</p>
+            <p class="title">{{stats['donationsReceived']}}</p>
+        </div>
+    </div>
+    <div class="level-item has-text-centered">
+        <div>
+            <p class="heading">Attacks Won</p>
+            <p class="title">{{stats['attackWins']}}</p>
+        </div>
+    </div>
+    <div class="level-item has-text-centered">
+        <div>
+            <p class="heading">Defense Won</p>
+            <p class="title">{{stats['defenseWins']}}</p>
+        </div>
+    </div>
+</nav>
+<hr>
+<h1 class="title has-text-centered">Achievements</h1>
+{% for achievements in data %}
+<ol class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+            <div class="fw-bold">{{achievements['name']}}</div>
+            {{achievements['info']}}
+        </div>
+        <span class="badge bg-primary rounded-pill">{{achievements['value']}}</span>
+    </li>
+</ol>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block title %}Search Clans{% endblock %}
+{% block body %}
+<div class="row pt-5">
+    <div class="col-sm-4 offset-sm-4">
+        <nav class="panel">
+            <form method="POST">
+                <div class="panel-block">
+                    <p class="control has-icons-left">
+                        <input class="input" name='search' type="text" placeholder="Clan Name">
+                    </p>
+                </div>
+                <div class="panel-block">
+                    <button class="button is-link is-outlined is-fullwidth">
+                        Search
+                    </button>
+                </div>
+                <a href="{{url_for('clan')}}">or Search by ID</a>
+            </form>
+        </nav>
+        {% include 'includes/_messages.html' %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block title %}Clans{% endblock %}
+{% block body %}
+<div>
+    <nav class="nav d-flex justify-content-between">
+        <button type="button" class="btn btn-outline-secondary" onclick="goBack()">Back</button>
+    </nav>
+</div>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+{% for data in stats %}
+<div class="tile is-ancestor">
+    <div class="tile is-parent">
+        <article class="tile is-child box">
+           
+            <div class="content">
+                <figure class="image is-4by3">
+                    <img src="{{data['badgeUrls']['large']}}">
+                </figure>
+            </div> 
+            <p class="subtitle has-text-centered">Clan Tag: {{data['tag']}}</p>
+            <p class="subtitle has-text-centered"><a href="{{url_for('clan')}}">More</a></p>
+        </article>
+    </div>
+    <div class="tile is-parent is-8">
+        <article class="tile is-child box">
+            <p class="title">{{data['name']}}</p>
+            <p class="subtitle">Clan Level :{{data['clanLevel']}}</p>
+            <div class="content">
+                <p>Clan Points :{{data['clanPoints']}}</p>
+                <p>Type :{{data['type']}}</p>
+                <p>Required Trophies :{{data['requiredTrophies']}}</p>
+                <p>Required Versus Trophies :{{data['requiredVersusTrophies']}}</p>
+                <p>War Frequency: {{data['warFrequency']}}</p>
+                <p>Total Members: {{data['members']}}</p>
+            </div>
+        </article>
+    </div>
+</div>
+
+{% endfor %}
+{% endblock %}
